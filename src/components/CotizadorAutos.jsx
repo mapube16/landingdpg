@@ -86,12 +86,25 @@ export default function CotizadorAutos() {
           ) : (
             <form onSubmit={submit}>
               <div className="form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-                <input required placeholder="Nombre completo" value={form.nombre} onChange={set('nombre')} style={inputStyle} />
-                <input required placeholder="Cédula" value={form.cedula} onChange={set('cedula')} style={inputStyle} />
-                <input required type="date" value={form.fechaNacimiento} onChange={set('fechaNacimiento')} style={{ ...inputStyle, color: '#5c7573' }} />
-                <input required placeholder="Placa del vehículo" value={form.placa} onChange={set('placa')} style={{ ...inputStyle, textTransform: 'uppercase' }} />
-                <input required type="tel" placeholder="Teléfono / WhatsApp" value={form.telefono} onChange={set('telefono')} style={inputStyle} />
-                <input required type="email" placeholder="Correo electrónico" value={form.correo} onChange={set('correo')} style={inputStyle} />
+                <input required aria-label="Nombre completo" placeholder="Nombre completo" value={form.nombre} onChange={set('nombre')} style={inputStyle} />
+                <input required aria-label="Cédula" placeholder="Cédula" value={form.cedula} onChange={set('cedula')} style={inputStyle} />
+                {/* type=date no muestra placeholder: arranca como texto y al enfocarlo abre el selector nativo */}
+                <input
+                  required
+                  type="text"
+                  aria-label="Fecha de nacimiento"
+                  placeholder="Fecha de nacimiento"
+                  value={form.fechaNacimiento}
+                  onChange={set('fechaNacimiento')}
+                  onFocus={(e) => (e.target.type = 'date')}
+                  onBlur={(e) => {
+                    if (!e.target.value) e.target.type = 'text'
+                  }}
+                  style={inputStyle}
+                />
+                <input required aria-label="Placa del vehículo" placeholder="Placa del vehículo" value={form.placa} onChange={set('placa')} style={{ ...inputStyle, textTransform: 'uppercase' }} />
+                <input required type="tel" aria-label="Teléfono o WhatsApp" placeholder="Teléfono / WhatsApp" value={form.telefono} onChange={set('telefono')} style={inputStyle} />
+                <input required type="email" aria-label="Correo electrónico" placeholder="Correo electrónico" value={form.correo} onChange={set('correo')} style={inputStyle} />
               </div>
               <select
                 required

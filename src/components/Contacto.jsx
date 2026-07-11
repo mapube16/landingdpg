@@ -121,11 +121,11 @@ export default function Contacto() {
           ) : (
             <form onSubmit={submit}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <input required placeholder="Nombre completo" value={form.nombre} onChange={set('nombre')} style={inputStyle} />
-                <input required type="email" placeholder="Correo electrónico" value={form.correo} onChange={set('correo')} style={inputStyle} />
-                <input required type="tel" placeholder="Teléfono" value={form.telefono} onChange={set('telefono')} style={inputStyle} />
+                <input required aria-label="Nombre completo" placeholder="Nombre completo" value={form.nombre} onChange={set('nombre')} style={inputStyle} />
+                <input required type="email" aria-label="Correo electrónico" placeholder="Correo electrónico" value={form.correo} onChange={set('correo')} style={inputStyle} />
+                <input required type="tel" aria-label="Teléfono" placeholder="Teléfono" value={form.telefono} onChange={set('telefono')} style={inputStyle} />
                 <textarea
-                  placeholder="¿Qué producto te interesa?"
+                  aria-label="¿Qué producto te interesa?" placeholder="¿Qué producto te interesa?"
                   value={form.mensaje}
                   onChange={set('mensaje')}
                   style={{ height: 90, border: '1.5px solid #dbe3e6', borderRadius: 9, padding: '12px 14px', fontSize: 14, fontFamily: 'Mulish', resize: 'none' }}
