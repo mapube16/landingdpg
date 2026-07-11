@@ -1,0 +1,123 @@
+/* Qlassik = fuente display del manual de marca DPG (auto-hospedada) */
+@font-face {
+  font-family: 'Qlassik';
+  src: url('/fonts/Qlassik_TB.otf') format('opentype');
+  font-weight: 400 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Qlassik';
+  src: url('/fonts/QlassikBold_TB.otf') format('opentype');
+  font-weight: 700 900;
+  font-display: swap;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Mulish, system-ui, sans-serif;
+  color: #16303e;
+  background: #fbfaf7;
+}
+h1, h2, h3, .disp {
+  font-family: 'Qlassik', Poppins, Mulish, sans-serif;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+a { color: #0E7ABF; }
+* { box-sizing: border-box; }
+input::placeholder, textarea::placeholder { color: #9aa9b0; }
+
+@keyframes skylineScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes floatSlow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes cloudDrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.14); } }
+@keyframes mapPulse { 0% { transform: scale(1); opacity: .5; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
+
+/* Facade del mapa: preview ligero, carga el iframe pesado solo al hacer clic */
+.map-facade { transition: transform .3s ease, box-shadow .3s ease; }
+.map-facade:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(13,51,70,.18); }
+
+/* Antigravity: cards flotantes con lift suave y sombra difusa por capas al hover */
+.float-card {
+  will-change: transform;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1),
+              box-shadow .35s cubic-bezier(.22,.61,.36,1);
+}
+.float-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(13,51,70,.06),
+              0 28px 60px rgba(13,51,70,.16);
+}
+
+/* "Cómo funciona": grid de 3 pasos + conector punteado */
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 44px; }
+  .step-line { display: none; }
+}
+
+/* Marquee de aseguradoras: pausa al pasar el mouse */
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─────────── RESPONSIVE ─────────── */
+
+/* Secciones de 2 columnas: se apilan en móvil */
+@media (max-width: 900px) {
+  .row-2 { flex-direction: column !important; gap: 36px !important; align-items: stretch !important; }
+  .row-2 > * { flex: 1 1 auto !important; width: 100%; }
+}
+
+/* Grid de diferenciales */
+@media (max-width: 900px) { .grid-4 { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 520px) { .grid-4 { grid-template-columns: 1fr !important; } }
+
+/* Grid del formulario de autos */
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr !important; } }
+
+/* Nav: oculta links centrales en móvil (quedan logo + acciones) */
+@media (max-width: 900px) {
+  .nav-links { display: none !important; }
+  .nav-bar { padding: 12px 18px !important; gap: 12px !important; }
+  .nav-cta { display: none !important; }
+}
+
+/* Sección "100% digital": sin pin ni 100vh en móvil */
+@media (max-width: 900px) {
+  .digital-inner { height: auto !important; padding: 70px 0 !important; display: block !important; }
+  .digital-col-text, .digital-col-img { height: auto !important; position: static !important; }
+  .digital-col-img { min-height: 280px; margin-top: 28px; }
+  .digital-dots { display: none !important; }
+}
+
+/* Padding lateral y tamaños en pantallas chicas */
+@media (max-width: 600px) {
+  .sec-pad { padding-left: 18px !important; padding-right: 18px !important; }
+}
+
+/* Grid de reels de Instagram (portadas 9:16) */
+.reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 760px; margin: 0 auto; }
+.reel-tile { height: 420px; }
+@media (max-width: 700px) {
+  .reel-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .reel-tile { height: 300px; }
+}
+
+/* Flechas del carrusel de reseñas */
+.rev-nav { transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+.rev-nav:not(:disabled):hover {
+  transform: translateY(-2px);
+  background: #f2f6f8;
+  box-shadow: 0 8px 18px rgba(13,51,70,.12);
+}
+
+/* Accesibilidad: desactiva movimiento para quien lo pide */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .float-card:hover { transform: none; }
+}
