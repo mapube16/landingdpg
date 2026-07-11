@@ -1,5 +1,14 @@
 import { useState } from 'react'
 import { Kicker } from '../theme.jsx'
+import { waMessage, waLink } from '../data.jsx'
+
+const ZONAS = {
+  bogota: 'Bogotá',
+  medellin: 'Medellín',
+  cali: 'Cali',
+  barranquilla: 'Barranquilla',
+  otra: 'Otra ciudad',
+}
 
 const inputStyle = {
   height: 46,
@@ -20,9 +29,22 @@ export default function CotizadorAutos() {
   const [submitted, setSubmitted] = useState(false)
 
   const set = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
+
   const submit = (e) => {
     e.preventDefault()
-    setSubmitted(true) // TODO: cablear envío de email al backend
+    const msg = [
+      '¡Hola DPG! Quiero cotizar mi *seguro de auto*:',
+      '',
+      `• Nombre: ${form.nombre}`,
+      `• Cédula: ${form.cedula}`,
+      `• Fecha de nacimiento: ${form.fechaNacimiento}`,
+      `• Placa: ${form.placa.toUpperCase()}`,
+      `• Teléfono: ${form.telefono}`,
+      `• Correo: ${form.correo}`,
+      `• Zona de circulación: ${ZONAS[form.zona] || form.zona}`,
+    ].join('\n')
+    window.open(waMessage(msg), '_blank', 'noopener')
+    setSubmitted(true)
   }
 
   return (
@@ -78,10 +100,35 @@ export default function CotizadorAutos() {
                 </svg>
               </div>
               <h3 style={{ fontSize: 22, color: '#0d3346', margin: '0 0 10px' }}>¡Listo, {form.nombre}!</h3>
-              <p style={{ fontSize: 14.5, color: '#4a636e', lineHeight: 1.5 }}>
-                Un asesor de DPG te contactará pronto a {form.telefono} para tu cotización del vehículo con placa{' '}
-                {form.placa}.
+              <p style={{ fontSize: 14.5, color: '#4a636e', lineHeight: 1.6, margin: '0 0 18px' }}>
+                Te abrimos WhatsApp con los datos de tu vehículo (placa {form.placa.toUpperCase()}) para que un asesor te
+                cotice. Si no se abrió, escríbenos por cualquiera de estos medios:
               </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener"
+                  style={{
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    height: 46,
+                    padding: '0 22px',
+                    borderRadius: 999,
+                    background: '#25D366',
+                    color: '#06331a',
+                    fontWeight: 700,
+                    fontSize: 14,
+                  }}
+                >
+                  Escríbenos por WhatsApp
+                </a>
+                <a href="mailto:innovaciondpg@gmail.com" style={{ fontSize: 13.5, color: '#0E7ABF', fontWeight: 600 }}>
+                  innovaciondpg@gmail.com
+                </a>
+              </div>
             </div>
           ) : (
             <form onSubmit={submit}>

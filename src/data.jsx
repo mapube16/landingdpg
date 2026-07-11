@@ -15,6 +15,11 @@ export const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
   'Hola, quiero más información sobre los seguros de DPG'
 )}`
 
+// Arma un link de WhatsApp con el mensaje ya escrito.
+// ponytail: los formularios envían por aquí mientras no exista el correo/backend.
+// Cuando haya email, se cambia esta función por un POST y listo.
+export const waMessage = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`
+
 export const heroTabsData = [
   {
     id: 'viaje',
