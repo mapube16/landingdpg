@@ -74,23 +74,41 @@ export function Transition({ from, to, height = 120 }) {
   return <div aria-hidden="true" style={{ height, background: `linear-gradient(180deg, ${from} 0%, ${to} 100%)` }} />
 }
 
-// Motivo de marca: el anillo real del logo como marca de agua decorativa.
+// Motivo de marca: anillo decorativo (arcos limpios → nítido a cualquier tamaño).
+// OJO: NO usar /dpg-ring.svg en grande — es un calco de baja resolución y se pixela.
 export function Ring({ size = 240, opacity = 0.06, style }) {
   return (
-    <img
-      src="/dpg-ring.svg"
-      alt=""
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
       aria-hidden="true"
-      style={{ position: 'absolute', width: size, height: 'auto', opacity, pointerEvents: 'none', ...style }}
-    />
+      style={{ position: 'absolute', opacity, pointerEvents: 'none', ...style }}
+    >
+      <g strokeWidth="9" strokeLinecap="round">
+        <path d="M87.42 56.60 A38 38 0 0 1 56.60 87.42" stroke={BLUE} />
+        <path d="M43.40 87.42 A38 38 0 0 1 12.58 56.60" stroke={LIME} />
+        <path d="M12.58 43.40 A38 38 0 0 1 43.40 12.58" stroke={BLUE} />
+        <path d="M56.60 12.58 A38 38 0 0 1 87.42 43.40" stroke={LIME} />
+      </g>
+      <circle cx="50" cy="50" r="13" stroke={BLUE} strokeWidth="5" />
+    </svg>
   )
 }
 
-// Kicker con el anillo como viñeta (motivo recurrente sutil).
+// Kicker con el anillo como viñeta (motivo recurrente, mismo trazo que el watermark).
 export function Kicker({ children, color = BLUE }) {
   return (
     <div style={{ ...kicker, color }}>
-      <img src="/dpg-ring.svg" alt="" aria-hidden="true" style={{ width: 16, height: 16 }} />
+      <svg width="15" height="15" viewBox="0 0 100 100" fill="none" aria-hidden="true" style={{ flex: 'none' }}>
+        <g strokeWidth="11" strokeLinecap="round">
+          <path d="M87.42 56.60 A38 38 0 0 1 56.60 87.42" stroke={BLUE} />
+          <path d="M43.40 87.42 A38 38 0 0 1 12.58 56.60" stroke={LIME} />
+          <path d="M12.58 43.40 A38 38 0 0 1 43.40 12.58" stroke={BLUE} />
+          <path d="M56.60 12.58 A38 38 0 0 1 87.42 43.40" stroke={LIME} />
+        </g>
+      </svg>
       {children}
     </div>
   )
