@@ -22,6 +22,12 @@ const GoogleG = () => (
   </svg>
 )
 
+const StarIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+)
+
 function Stars({ n = 5, size = 15 }) {
   return (
     <span style={{ display: 'inline-flex', gap: 1 }}>
@@ -295,48 +301,29 @@ export default function GoogleReviews() {
 
   return (
     <div>
-      {/* header ficha */}
+      {/* header ficha — solo el rating; los CTA van al final */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           gap: 16,
-          flexWrap: 'wrap',
           background: '#fff',
           border: '1px solid #e8ebed',
-          borderRadius: 14,
+          borderRadius: 16,
           padding: '18px 24px',
           marginBottom: 24,
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <GoogleG />
-          <div style={{ textAlign: 'left' }}>
-            <div style={{ fontSize: 17, fontWeight: 700, color: '#0d3346' }}>{data.name}</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 3 }}>
-              <span style={{ fontSize: 15, fontWeight: 700, color: '#0d3346' }}>{data.rating?.toFixed(1)}</span>
-              <Stars n={data.rating} />
-              <span style={{ fontSize: 13, color: '#8a9aa1' }}>({data.total})</span>
-            </div>
+        <GoogleG />
+        <div style={{ textAlign: 'left' }}>
+          <div style={{ fontSize: 17, fontWeight: 700, color: '#0d3346' }}>{data.name}</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 3 }}>
+            <span style={{ fontSize: 15, fontWeight: 700, color: '#0d3346' }}>{data.rating?.toFixed(1)}</span>
+            <Stars n={data.rating} />
+            <span style={{ fontSize: 13, color: '#8a9aa1' }}>({data.total})</span>
           </div>
         </div>
-        <a
-          href={writeUrl}
-          target="_blank"
-          rel="noopener"
-          style={{
-            textDecoration: 'none',
-            padding: '10px 18px',
-            borderRadius: 9,
-            border: '1.5px solid #dbe3e6',
-            color: '#0d3346',
-            fontWeight: 600,
-            fontSize: 13.5,
-          }}
-        >
-          Escribir reseña
-        </a>
       </div>
 
       {/* carrusel de reseñas */}
@@ -346,7 +333,8 @@ export default function GoogleReviews() {
         <div style={{ textAlign: 'center', color: '#8a9aa1', fontSize: 14 }}>Aún no hay reseñas para mostrar.</div>
       )}
 
-      <div style={{ textAlign: 'center', marginTop: 28 }}>
+      {/* CTA al final: primero leer, luego invitar a escribir */}
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 12, marginTop: 32 }}>
         <a
           href={listUrl}
           target="_blank"
@@ -355,16 +343,41 @@ export default function GoogleReviews() {
             textDecoration: 'none',
             display: 'inline-flex',
             alignItems: 'center',
-            height: 46,
+            justifyContent: 'center',
+            height: 48,
             padding: '0 24px',
-            borderRadius: 24,
+            borderRadius: 999,
             border: '1.5px solid #dbe3e6',
+            background: '#fff',
             color: '#0d3346',
             fontWeight: 600,
             fontSize: 14,
           }}
         >
-          Leer todas las reseñas en Google
+          Leer todas en Google
+        </a>
+        <a
+          href={writeUrl}
+          target="_blank"
+          rel="noopener"
+          className="float-card"
+          style={{
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 8,
+            height: 48,
+            padding: '0 26px',
+            borderRadius: 999,
+            background: '#1899D6',
+            color: '#fff',
+            fontWeight: 700,
+            fontSize: 14,
+            boxShadow: '0 10px 24px rgba(24,153,214,.3)',
+          }}
+        >
+          <StarIcon /> Escribir reseña
         </a>
       </div>
     </div>
