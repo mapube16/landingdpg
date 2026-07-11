@@ -26,7 +26,7 @@ export default function CotizadorAutos() {
   }
 
   return (
-    <div id="cotizador-autos" style={{ background: '#ffffff', padding: '90px 28px' }}>
+    <div id="cotizador-autos" style={{ background: '#e7f0f6', padding: '90px 28px' }}>
       <div className="row-2 sec-pad" style={{ maxWidth: 1240, margin: '0 auto', display: 'flex', gap: 56, alignItems: 'center' }}>
         <div style={{ flex: 1 }}>
           <Kicker color="#538F32">Seguro para autos</Kicker>

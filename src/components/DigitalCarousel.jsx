@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { CheckIcon } from '@heroicons/react/24/solid'
 import { digitalSlidesData } from '../data.jsx'
 import { prefersReducedMotion } from '../anim.js'
+import { Ring } from '../theme.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -71,10 +73,18 @@ export default function DigitalCarousel() {
 
   return (
     <div id="productos" ref={pinRef} style={{ position: 'relative', background: '#0d3346' }}>
-      <div className="digital-inner" style={{ height: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+      <div className="digital-inner" style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+        {/* ambiente: glows de marca + retícula sutil + anillo DPG */}
+        <div style={{ position: 'absolute', top: '-12%', left: '-6%', width: 640, height: 640, borderRadius: '50%', background: 'radial-gradient(circle, rgba(24,153,214,.28), transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-18%', right: '-4%', width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,191,29,.16), transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.05, pointerEvents: 'none', backgroundImage: 'linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px)', backgroundSize: '52px 52px' }} />
+        <Ring size={420} opacity={0.06} style={{ top: '8%', right: '38%' }} />
+
         <div
           className="row-2 sec-pad"
           style={{
+            position: 'relative',
+            zIndex: 1,
             maxWidth: 1240,
             margin: '0 auto',
             padding: '0 28px',
@@ -85,7 +95,7 @@ export default function DigitalCarousel() {
           }}
         >
           {/* textos */}
-          <div className="digital-col-text" style={{ flex: 1, position: 'relative', height: 360 }}>
+          <div className="digital-col-text" style={{ flex: 1, position: 'relative', height: 460 }}>
             {digitalSlidesData.map((slide) => (
               <div
                 key={slide.id}
@@ -111,9 +121,31 @@ export default function DigitalCarousel() {
                   Contratación 100% digital
                 </div>
                 <h2 style={{ fontSize: 'clamp(26px, 5vw, 44px)', color: '#fff', margin: '0 0 16px', lineHeight: 1.05 }}>{slide.title}</h2>
-                <p style={{ fontSize: 16.5, color: '#a9c1cd', lineHeight: 1.55, maxWidth: 420, margin: '0 0 26px' }}>
+                <p style={{ fontSize: 16.5, color: '#a9c1cd', lineHeight: 1.55, maxWidth: 420, margin: '0 0 20px' }}>
                   {slide.desc}
                 </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 26, maxWidth: 460 }}>
+                  {slide.features.map((f) => (
+                    <span
+                      key={f}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 6,
+                        fontSize: 12.5,
+                        fontWeight: 600,
+                        color: '#d7e7f0',
+                        background: 'rgba(255,255,255,.07)',
+                        border: '1px solid rgba(255,255,255,.15)',
+                        borderRadius: 999,
+                        padding: '7px 14px',
+                      }}
+                    >
+                      <CheckIcon style={{ width: 14, height: 14, color: '#9BBF1D' }} />
+                      {f}
+                    </span>
+                  ))}
+                </div>
                 <a
                   href={slide.href}
                   target="_blank"
@@ -163,9 +195,30 @@ export default function DigitalCarousel() {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, rgba(10,40,55,0) 55%, rgba(10,40,55,.35))',
+                    background: 'linear-gradient(180deg, rgba(10,40,55,0) 50%, rgba(10,40,55,.55))',
                   }}
                 />
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: 18,
+                    left: 18,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 7,
+                    fontSize: 12.5,
+                    fontWeight: 700,
+                    color: '#0d3346',
+                    background: 'rgba(255,255,255,.92)',
+                    backdropFilter: 'blur(6px)',
+                    borderRadius: 999,
+                    padding: '8px 14px',
+                    boxShadow: '0 8px 20px rgba(0,0,0,.25)',
+                  }}
+                >
+                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#9BBF1D' }} />
+                  {slide.badge}
+                </span>
               </div>
             ))}
           </div>

@@ -36,7 +36,7 @@ export default function Contacto() {
   }
 
   return (
-    <div id="contacto" style={{ background: '#eef4f8', padding: '90px 28px' }}>
+    <div id="contacto" style={{ background: '#dbe8f0', padding: '90px 28px' }}>
       <div className="row-2 sec-pad" style={{ maxWidth: 1240, margin: '0 auto', display: 'flex', gap: 56 }}>
         <div style={{ flex: 1 }}>
           <Kicker>Hablemos</Kicker>

@@ -30,7 +30,7 @@ const steps = [
 export function ComoFunciona() {
   const gridRef = useReveal({ y: 40 })
   return (
-    <div style={{ background: '#eef4f8', padding: '100px 28px', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ background: '#dbe8f0', padding: '100px 28px', position: 'relative', overflow: 'hidden' }}>
       <Ring size={360} opacity={0.05} style={{ top: -70, right: -70 }} />
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative' }}>
         <div style={{ maxWidth: 620, margin: '0 auto 60px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
@@ -123,7 +123,7 @@ const faqs = [
 export function Faq() {
   const [open, setOpen] = useState(0)
   return (
-    <div style={{ background: '#ffffff', padding: '100px 28px' }}>
+    <div style={{ background: '#e7f0f6', padding: '100px 28px' }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <div style={{ marginBottom: 48, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <Kicker>Dudas</Kicker>

@@ -58,6 +58,22 @@ export const kicker = {
   marginBottom: 12,
 }
 
+// Escala secuencial de fondos (arco): oscuro → aclara → blanco al centro → oscurece → oscuro.
+export const SEQ = {
+  dark: '#0a2836',
+  navy: '#0d3346',
+  t1: '#dbe8f0', // tinte más profundo (justo después del navy)
+  t2: '#e7f0f6',
+  t3: '#f0f6f9',
+  t4: '#f8fbfc',
+  white: '#ffffff', // centro, lo más claro
+}
+
+// Banda de transición: funde un color en el siguiente para que no haya saltos bruscos.
+export function Transition({ from, to, height = 120 }) {
+  return <div aria-hidden="true" style={{ height, background: `linear-gradient(180deg, ${from} 0%, ${to} 100%)` }} />
+}
+
 // Motivo de marca: el anillo real del logo como marca de agua decorativa.
 export function Ring({ size = 240, opacity = 0.06, style }) {
   return (

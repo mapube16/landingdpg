@@ -66,6 +66,8 @@ export const digitalSlidesData = [
     href: 'https://www.sura.co', // TODO: link real de SURA con código de asesor DPG
     photo: '/photos/viaje.jpg',
     alt: 'Pareja revisando su seguro de viaje en el aeropuerto',
+    features: ['Cobertura médica en el exterior', 'Asistencia 24/7', 'Equipaje protegido'],
+    badge: 'Emisión inmediata',
   },
   {
     id: 'arrendamiento',
@@ -75,6 +77,8 @@ export const digitalSlidesData = [
     href: 'https://www.sura.co', // TODO: link real de SURA con código de asesor DPG
     photo: '/photos/arrendamiento.jpg',
     alt: 'Entrega de llaves de un apartamento en arriendo',
+    features: ['Protección ante impagos', 'Cubre daños al inmueble', 'Emisión inmediata'],
+    badge: '100% en línea',
   },
 ]
 

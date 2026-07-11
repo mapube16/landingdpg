@@ -7,7 +7,8 @@ import { Ring, Kicker } from '../theme.jsx'
 export function Diferenciales() {
   const gridRef = useReveal({ y: 48, rotate: -1.5 })
   return (
-    <div style={{ maxWidth: 1240, margin: '0 auto', padding: '100px 28px' }}>
+    <div style={{ background: '#f0f6f9', padding: '100px 28px' }}>
+     <div style={{ maxWidth: 1240, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 54px' }}>
         <Kicker>Diferenciales DPG</Kicker>
         <h2 style={{ fontSize: 'clamp(26px, 5vw, 36px)', color: '#0d3346', margin: 0 }}>
@@ -35,13 +36,14 @@ export function Diferenciales() {
           </div>
         ))}
       </div>
+     </div>
     </div>
   )
 }
 
 export function QuienesSomos() {
   return (
-    <div id="quienes-somos" style={{ background: '#ffffff', padding: '100px 28px', position: 'relative', overflow: 'hidden' }}>
+    <div id="quienes-somos" style={{ background: '#f8fbfc', padding: '100px 28px', position: 'relative', overflow: 'hidden' }}>
       <Ring size={340} opacity={0.05} style={{ bottom: -80, left: -80 }} />
       <div className="row-2 sec-pad" style={{ maxWidth: 1240, margin: '0 auto', display: 'flex', gap: 60, alignItems: 'center', position: 'relative' }}>
         <div style={{ flex: 1 }}>
@@ -90,7 +92,7 @@ export function QuienesSomos() {
 export function Aliados() {
   const cards = [...aseguradoras, ...aseguradoras] // duplicado para loop sin costura
   return (
-    <div id="aliados" style={{ padding: '90px 0', overflow: 'hidden' }}>
+    <div id="aliados" style={{ background: '#ffffff', padding: '90px 0', overflow: 'hidden' }}>
       <div style={{ textAlign: 'center', margin: '0 auto 46px', padding: '0 28px', maxWidth: 700 }}>
         <Kicker>Respaldo</Kicker>
         <h2 style={{ fontSize: 'clamp(26px, 5vw, 34px)', color: '#0d3346', margin: '0 0 12px' }}>
@@ -102,8 +104,8 @@ export function Aliados() {
       </div>
 
       <div style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: 120, background: 'linear-gradient(90deg,#eef4f8,transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: 120, background: 'linear-gradient(-90deg,#eef4f8,transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: 120, background: 'linear-gradient(90deg,#ffffff,transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: 120, background: 'linear-gradient(-90deg,#ffffff,transparent)', zIndex: 2, pointerEvents: 'none' }} />
         <div className="marquee-track" style={{ display: 'flex', gap: 20, width: 'max-content', animation: 'skylineScroll 40s linear infinite', padding: '10px 10px' }}>
           {cards.map((a, i) => (
             <div
@@ -150,7 +152,7 @@ export function Aliados() {
 // Reseñas reales de Google (Featurable). El fetch lo hace la librería con el widget ID.
 export function Testimonios() {
   return (
-    <div style={{ background: '#ffffff', padding: '90px 28px', borderTop: '1px solid #eef2f4' }}>
+    <div style={{ background: '#f8fbfc', padding: '90px 28px' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 12 }}>
           <Kicker>Comunidad</Kicker>
@@ -215,7 +217,7 @@ function ReelsGrid({ gridRef }) {
 export function Redes() {
   const gridRef = useReveal({ y: 34, stagger: 0.08 })
   return (
-    <div style={{ background: '#eef4f8', padding: '100px 28px', borderTop: '1px solid #e2eaef' }}>
+    <div style={{ background: '#f0f6f9', padding: '100px 28px' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
         <Kicker>Síguenos</Kicker>
         <h2 style={{ fontSize: 'clamp(26px, 5vw, 34px)', color: '#0d3346', margin: '0 0 12px' }}>
