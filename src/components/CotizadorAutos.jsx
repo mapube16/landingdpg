@@ -42,6 +42,11 @@ export default function CotizadorAutos() {
             <div style={bullet}><span style={dot} /> Asesoría de un experto, sin costo</div>
             <div style={bullet}><span style={dot} /> Comparamos entre 27 aseguradoras</div>
           </div>
+          <img
+            src="/photos/auto.jpg"
+            alt="Conductor tranquilo junto a su carro asegurado"
+            style={{ width: '100%', maxWidth: 460, height: 200, objectFit: 'cover', borderRadius: 18, marginTop: 26, boxShadow: '0 16px 40px rgba(13,51,70,.15)', display: 'block' }}
+          />
         </div>
 
         <div

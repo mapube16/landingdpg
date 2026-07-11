@@ -150,38 +150,22 @@ export default function DigitalCarousel() {
                   inset: 0,
                   borderRadius: 22,
                   overflow: 'hidden',
-                  background: slide.bg,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  background: '#0a2836',
+                  boxShadow: '0 30px 60px rgba(0,0,0,.35)',
                 }}
               >
-                <div
-                  style={{
-                    width: 220,
-                    height: 220,
-                    borderRadius: '50%',
-                    background: slide.blob,
-                    animation: 'floatSlow 6s ease-in-out infinite',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#fff',
-                  }}
-                  dangerouslySetInnerHTML={{ __html: slide.iconHtml }}
+                <img
+                  src={slide.photo}
+                  alt={slide.alt}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
                 <div
                   style={{
                     position: 'absolute',
-                    bottom: 16,
-                    right: 16,
-                    fontSize: 10.5,
-                    color: 'rgba(255,255,255,.55)',
-                    fontWeight: 600,
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(10,40,55,0) 55%, rgba(10,40,55,.35))',
                   }}
-                >
-                  imagen ilustrativa (AI) — a reemplazar
-                </div>
+                />
               </div>
             ))}
           </div>

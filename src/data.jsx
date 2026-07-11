@@ -51,17 +51,11 @@ export const heroTabsData = [
   },
 ]
 
-// Fotos ilustrativas del carrusel del hero (placeholder — reemplazar por fotos reales de DPG).
-// ponytail: loremflickr con ?lock=n = imagen estable por tema; cambia las URLs por /src/assets locales cuando tengas las reales.
+// Fotos reales del hero (crossfade de fondo).
 export const heroPhotos = [
   { src: '/photos/familia.jpg', alt: 'Familia protegida por DPG Seguros' },
   { src: '/photos/asesoria.jpg', alt: 'Asesoría personalizada en DPG Seguros' },
 ]
-
-const svgPlane =
-  '<svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>'
-const svgHome =
-  '<svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/><path d="M9.5 20v-6h5v6"/></svg>'
 
 export const digitalSlidesData = [
   {
@@ -69,20 +63,18 @@ export const digitalSlidesData = [
     title: 'Seguro de Viaje',
     desc: 'Viaja tranquilo: cobertura médica, asistencia y equipaje protegido, contratado 100% en línea.',
     cta: 'Comprar seguro de viaje',
-    href: 'https://www.sura.co',
-    bg: 'linear-gradient(135deg,#1899D6,#0d3346)',
-    blob: 'rgba(255,255,255,.15)',
-    iconHtml: svgPlane,
+    href: 'https://www.sura.co', // TODO: link real de SURA con código de asesor DPG
+    photo: '/photos/viaje.jpg',
+    alt: 'Pareja revisando su seguro de viaje en el aeropuerto',
   },
   {
     id: 'arrendamiento',
     title: 'Arrendamiento Residencial',
     desc: 'Asegura tu inmueble en arriendo contra impagos y daños, con emisión inmediata.',
     cta: 'Comprar seguro de arrendamiento',
-    href: 'https://www.sura.co',
-    bg: 'linear-gradient(135deg,#538F32,#0d3346)',
-    blob: 'rgba(255,255,255,.15)',
-    iconHtml: svgHome,
+    href: 'https://www.sura.co', // TODO: link real de SURA con código de asesor DPG
+    photo: '/photos/arrendamiento.jpg',
+    alt: 'Entrega de llaves de un apartamento en arriendo',
   },
 ]
 
