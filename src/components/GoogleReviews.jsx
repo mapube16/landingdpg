@@ -203,12 +203,44 @@ function ReviewsCarousel({ reviews }) {
   )
 }
 
-function ConfigNote({ error }) {
+// Fallback digno si la key no está configurada o la API falla: nunca mostramos
+// mensajes de dev al visitante — lo llevamos a ver las reseñas en Google.
+function ReviewsFallback({ error }) {
+  if (import.meta.env.DEV) {
+    console.warn(
+      '[GoogleReviews]',
+      error
+        ? 'La API falló. Revisa que Places API (New) esté habilitada y que el dominio esté autorizado en la API key.'
+        : 'Falta VITE_GOOGLE_MAPS_API_KEY (local: .env · producción: variables del hosting).'
+    )
+  }
+  const listUrl = PLACE_ID
+    ? `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`
+    : 'https://www.google.com/maps'
   return (
-    <div style={{ textAlign: 'center', color: '#8a9aa1', fontSize: 14, padding: '20px 0' }}>
-      {error
-        ? 'No se pudieron cargar las reseñas de Google. Revisa la API key, que la Places API (New) esté habilitada y el dominio autorizado.'
-        : 'Reseñas de Google pendientes: falta configurar GOOGLE_MAPS_API_KEY / PLACE_ID en src/data.jsx.'}
+    <div style={{ textAlign: 'center', padding: '10px 0 4px' }}>
+      <a
+        href={listUrl}
+        target="_blank"
+        rel="noopener"
+        className="float-card"
+        style={{
+          textDecoration: 'none',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 10,
+          height: 50,
+          padding: '0 26px',
+          borderRadius: 999,
+          background: '#fff',
+          border: '1.5px solid #dbe3e6',
+          color: '#0d3346',
+          fontWeight: 700,
+          fontSize: 14.5,
+        }}
+      >
+        <GoogleG /> Ver nuestras reseñas en Google
+      </a>
     </div>
   )
 }
@@ -254,8 +286,8 @@ export default function GoogleReviews() {
     }
   }, [])
 
-  if (!GOOGLE_MAPS_API_KEY || !PLACE_ID) return <ConfigNote />
-  if (error) return <ConfigNote error />
+  if (!GOOGLE_MAPS_API_KEY || !PLACE_ID) return <ReviewsFallback />
+  if (error) return <ReviewsFallback error />
   if (!data) return <div style={{ textAlign: 'center', color: '#7a97a4', padding: '20px 0' }}>Cargando reseñas…</div>
 
   const listUrl = `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`
