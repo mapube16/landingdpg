@@ -67,7 +67,7 @@ export default function CotizadorAutos() {
         </div>
 
         <div
-          className="float-card"
+          className="float-card form-card"
           style={{
             flex: 1.15,
             background: '#fff',
@@ -157,7 +157,7 @@ export default function CotizadorAutos() {
                   height: 48,
                   border: '1.5px solid #dbe3e6',
                   borderRadius: 12,
-                  padding: '0 14px',
+                  padding: '0 40px 0 14px',
                   fontSize: 14,
                   marginTop: 14,
                   color: '#33473f',
@@ -165,7 +165,7 @@ export default function CotizadorAutos() {
                   background: '#fff',
                 }}
               >
-                <option value="">Zona de circulación del vehículo</option>
+                <option value="">Zona de circulación</option>
                 <option value="bogota">Bogotá</option>
                 <option value="medellin">Medellín</option>
                 <option value="cali">Cali</option>

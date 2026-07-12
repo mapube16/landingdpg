@@ -26,7 +26,8 @@ h1, h2, h3, .disp {
 }
 a { color: #0E7ABF; }
 * { box-sizing: border-box; }
-input::placeholder, textarea::placeholder { color: #9aa9b0; }
+/* #9aa9b0 daba 2.42:1 (falla WCAG AA). #5c7280 = 5.03:1 sobre blanco. */
+input::placeholder, textarea::placeholder { color: #5c7280; opacity: 1; }
 
 @keyframes skylineScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes floatSlow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
@@ -93,6 +94,9 @@ input::placeholder, textarea::placeholder { color: #9aa9b0; }
     box-shadow: 0 10px 30px rgba(13, 51, 70, .06);
   }
 }
+
+/* Cards de formulario: menos padding en movil (campos mas anchos) */
+@media (max-width: 600px) { .form-card { padding: 22px !important; } }
 
 /* Grid del formulario de autos */
 @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr !important; } }
