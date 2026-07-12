@@ -6,9 +6,9 @@ import { Kicker } from '../theme.jsx'
 const iconStyle = { width: 20, height: 20, color: '#0E7ABF' }
 
 const inputStyle = {
-  height: 46,
+  height: 48,
   border: '1.5px solid #dbe3e6',
-  borderRadius: 9,
+  borderRadius: 12,
   padding: '0 14px',
   fontSize: 14,
   fontFamily: 'Mulish',
@@ -128,7 +128,7 @@ export default function Contacto() {
                   aria-label="¿Qué producto te interesa?" placeholder="¿Qué producto te interesa?"
                   value={form.mensaje}
                   onChange={set('mensaje')}
-                  style={{ height: 90, border: '1.5px solid #dbe3e6', borderRadius: 9, padding: '12px 14px', fontSize: 14, fontFamily: 'Mulish', resize: 'none' }}
+                  style={{ height: 96, border: '1.5px solid #dbe3e6', borderRadius: 12, padding: '12px 14px', fontSize: 14, fontFamily: 'Mulish', resize: 'none' }}
                 />
               </div>
               <button

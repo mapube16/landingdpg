@@ -11,9 +11,9 @@ const ZONAS = {
 }
 
 const inputStyle = {
-  height: 46,
-  border: '1.5px solid #dce6dc',
-  borderRadius: 9,
+  height: 48,
+  border: '1.5px solid #dbe3e6',
+  borderRadius: 12,
   padding: '0 14px',
   fontSize: 14,
   fontFamily: 'Mulish',
@@ -64,11 +64,6 @@ export default function CotizadorAutos() {
             <div style={bullet}><span style={dot} /> Asesoría de un experto, sin costo</div>
             <div style={bullet}><span style={dot} /> Comparamos entre 27 aseguradoras</div>
           </div>
-          <img
-            src="/photos/auto.jpg"
-            alt="Conductor tranquilo junto a su carro asegurado"
-            style={{ width: '100%', maxWidth: 460, height: 200, objectFit: 'cover', borderRadius: 18, marginTop: 26, boxShadow: '0 16px 40px rgba(13,51,70,.15)', display: 'block' }}
-          />
         </div>
 
         <div
@@ -159,9 +154,9 @@ export default function CotizadorAutos() {
                 onChange={set('zona')}
                 style={{
                   width: '100%',
-                  height: 46,
-                  border: '1.5px solid #dce6dc',
-                  borderRadius: 9,
+                  height: 48,
+                  border: '1.5px solid #dbe3e6',
+                  borderRadius: 12,
                   padding: '0 14px',
                   fontSize: 14,
                   marginTop: 14,
